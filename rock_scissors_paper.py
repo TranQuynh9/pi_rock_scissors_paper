@@ -19,12 +19,16 @@ def human_vs_computer(player_choice=None):
 def comparison(player_1_choice=None, player_2_choice=None):
 	hands = {player_1_choice: 1, player_2_choice: 2}
 
+	players_choice = [player_1_choice, player_2_choice]
+
+	players_choice.sort()
+	
 	if player_1_choice != player_2_choice:
-		if [player_1_choice, player_2_choice] in [['rock', 'scissors'], ['scissors', 'rock']]:
+		if players_choice == ['rock', 'scissors']:
 			return hands['rock']
-		elif [player_1_choice, player_2_choice] in [['scissors', 'paper'], ['paper', 'scissors']]:
+		elif players_choice == ['paper', 'scissors']:
 			return hands['scissors']
-		elif [player_1_choice, player_2_choice] in [['rock', 'paper'], ['paper', 'rock']]:
+		elif players_choice == ['paper', 'rock']:
 			return hands['paper']
 	else:
 		return 0
